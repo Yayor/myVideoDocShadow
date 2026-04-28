@@ -1,0 +1,39 @@
+VERBOSE: True
+
+MODEL:
+  SESSION: 'SD7K_DSV'  # Define your current task here
+
+# Optimization arguments.
+OPTIM:
+  BATCH_SIZE: 16
+  NUM_EPOCHS: 20
+  LR_INITIAL: 2e-5
+  LR_MIN: 1e-6
+  SEED: 3407
+  WANDB: False
+
+TRAINING:
+  DATASET: 'DSV'
+  VAL_AFTER_EVERY: 5
+  RESUME: False
+  PRETRAINED: './checkpoints/SD7K_DSV_epoch_20.pth'
+  PS_W: 256
+  PS_H: 256
+  TRAIN_DIR: '../Data/DSV/' # path to training data
+  VAL_DIR: '../Data/DSV/'    # path to validation data
+  SAVE_DIR: './checkpoints/'     # path to save models and images
+  ORI: False
+
+LOSS:
+  SHADOW: 1.0
+  IDENTITY: 1.2
+  EDGE: 0.4
+  CHROMA: 1.0
+  TV: 0.01
+  LOWFREQ_KERNEL: 15
+  MASK_BLUR: 9
+
+TESTING:
+  WEIGHT: './checkpoints/SD7K_DSV_epoch_20.pth'
+  SAVE_IMAGES: True
+  CHROMA_SAFE: True
