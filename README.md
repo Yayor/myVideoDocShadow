@@ -1,2 +1,0 @@
-# myVideoDocShadow
-1
